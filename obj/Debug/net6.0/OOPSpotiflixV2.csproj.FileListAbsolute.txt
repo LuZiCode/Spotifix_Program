@@ -1,0 +1,15 @@
+C:\Users\lucas\Desktop\OOPSpotiflixV2-master\bin\Debug\net6.0\OOPSpotiflixV2.exe
+C:\Users\lucas\Desktop\OOPSpotiflixV2-master\bin\Debug\net6.0\OOPSpotiflixV2.deps.json
+C:\Users\lucas\Desktop\OOPSpotiflixV2-master\bin\Debug\net6.0\OOPSpotiflixV2.runtimeconfig.json
+C:\Users\lucas\Desktop\OOPSpotiflixV2-master\bin\Debug\net6.0\OOPSpotiflixV2.dll
+C:\Users\lucas\Desktop\OOPSpotiflixV2-master\bin\Debug\net6.0\OOPSpotiflixV2.pdb
+C:\Users\lucas\Desktop\OOPSpotiflixV2-master\obj\Debug\net6.0\OOPSpotiflixV2.csproj.AssemblyReference.cache
+C:\Users\lucas\Desktop\OOPSpotiflixV2-master\obj\Debug\net6.0\OOPSpotiflixV2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lucas\Desktop\OOPSpotiflixV2-master\obj\Debug\net6.0\OOPSpotiflixV2.AssemblyInfoInputs.cache
+C:\Users\lucas\Desktop\OOPSpotiflixV2-master\obj\Debug\net6.0\OOPSpotiflixV2.AssemblyInfo.cs
+C:\Users\lucas\Desktop\OOPSpotiflixV2-master\obj\Debug\net6.0\OOPSpotiflixV2.csproj.CoreCompileInputs.cache
+C:\Users\lucas\Desktop\OOPSpotiflixV2-master\obj\Debug\net6.0\OOPSpotiflixV2.dll
+C:\Users\lucas\Desktop\OOPSpotiflixV2-master\obj\Debug\net6.0\refint\OOPSpotiflixV2.dll
+C:\Users\lucas\Desktop\OOPSpotiflixV2-master\obj\Debug\net6.0\OOPSpotiflixV2.pdb
+C:\Users\lucas\Desktop\OOPSpotiflixV2-master\obj\Debug\net6.0\OOPSpotiflixV2.genruntimeconfig.cache
+C:\Users\lucas\Desktop\OOPSpotiflixV2-master\obj\Debug\net6.0\ref\OOPSpotiflixV2.dll
