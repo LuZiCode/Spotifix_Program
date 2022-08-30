@@ -12,7 +12,7 @@ namespace OOPSpotiflixV2
         Data data = new Data();
         public void MusicMenu()
         {
-            Console.WriteLine("\nMUSIC MENU\n1 For list of songs\n2 For search songs\n3 For add a new song");
+            Console.WriteLine("\nMUSIC MENU\n1 For list of albums\n2 For search an album\n3 For add a new album");
 
             switch (Console.ReadKey(true).Key)
             {
@@ -26,53 +26,93 @@ namespace OOPSpotiflixV2
                     break;
                 case ConsoleKey.NumPad3:
                 case ConsoleKey.D3:
-                    AddMusic();
+                    AddAlbum();
                     break;
                 default:
                     break;
             }
         }
-        private void AddMusic()
+        private void AddAlbum()
         {
-            MusicPropertys music = new MusicPropertys();
-            music.Title = methodsClass.GetString("Title: ");
-            music.Artist = methodsClass.GetString("Artist: ");
-            music.Genre = methodsClass.GetString("Genre: ");
-            music.Album = methodsClass.GetString("Album: ");
-            music.Length = methodsClass.GetLength();
-            music.ReleaseDate = methodsClass.GetReleaseDate();
-            music.WWW = methodsClass.GetString("WWW: ");
+            Album album = new Album();
+            album.Title = methodsClass.GetString("Album Title: ");
+            album.Artist = methodsClass.GetString("Artist: ");
+            album.Genre = methodsClass.GetString("Album Genre: ");
+            album.Length = methodsClass.GetLength();
+            album.ReleaseDate = methodsClass.GetReleaseDate();
+            album.WWW = methodsClass.GetString("WWW: ");
 
             Console.Clear();
-            ShowMusic(music);
-            Console.WriteLine("Confirm adding to list (Y/N)");
-            if (Console.ReadKey().Key == ConsoleKey.Y) data.MusicList.Add(music);
+            ShowAlbumAndSongs(album, false);
+            Console.WriteLine("\nConfirm adding album to list (Y/N)");
+            if (Console.ReadKey(true).Key == ConsoleKey.Y) data.MusicList.Add(album);
+
+            Console.WriteLine("Would you like to add a new song to the album?");
+            while (Console.ReadKey(true).Key == ConsoleKey.Y)
+            {
+                AddSong(album);
+                Console.WriteLine("\nAdd another song to album? (Y/N)");
+            }
         }
-        private void ShowMusic(MusicPropertys m)
+
+        private void AddSong(Album album)
         {
-            Console.WriteLine($"Title: {m.Title}\nArtist: {m.Artist}\nGenre: {m.Genre}\nAlbum: {m.Album}\nLength: {m.GetLength()}\nRelease date: {m.GetReleaseDate()}\nWeb: {m.WWW}");
+            Song song = new Song();
+            song.Title = methodsClass.GetString("Song Title: ");
+            song.Artist = methodsClass.GetInputOrParent(album.Artist, "Artist: ");
+            song.Genre = methodsClass.GetInputOrParent(album.Genre, "Genre: ");
+            song.ReleaseDate = methodsClass.GetReleaseDate();
+            song.Length = methodsClass.GetLength();
+            ShowSong(song);
+            Console.WriteLine("\nAdd this song to album? (Y/N)");
+            if (Console.ReadKey(true).Key == ConsoleKey.Y)
+                album.Songs.Add(song);
+        }
+
+        private void ShowAlbumAndSongs(Album a, bool ShowSongs = false)
+        {
+            Console.WriteLine($"\nAlbum Title: {a.Title}\nAlbum Artist: {a.Artist}\nAlbum Genre: {a.Genre}\nAlbum Length: {a.GetLength()}\nAlbum Release date: {a.GetReleaseDate()}\nAlbum Web: {a.WWW}");
+            if (ShowSongs)
+            {
+                foreach(Song s in a.Songs)
+                {
+                    ShowSong(s);
+                }
+            }
+        }
+        private void ShowSong(Song s)
+        {
+            Console.WriteLine($"\nSong Title: {s.Title}\nArtist: {s.Artist}\nSong Genre: {s.Genre}\nSong Release date: {s.GetReleaseDate()}\nSong Length: {s.GetLength()}");
         }
 
 
         private void ShowMusicList()
         {
-            foreach (MusicPropertys m in data.MusicList)
+            foreach (Album album in data.MusicList)
             {
-                ShowMusic(m);
+                ShowAlbumAndSongs(album, true);
             }
         }
         private void SearchMusic()
         {
             Console.Write("Search: ");
             string? search = Console.ReadLine();
-            foreach (MusicPropertys music in data.MusicList)
+            Song song = new Song();
+            foreach (Album album in data.MusicList)
             {
                 if (search != null)
                 {
-                    if (music.Title.Contains(search) || music.Genre.Contains(search) || music.Album.Contains(search) || music.Artist.Contains(search))
-                        ShowMusic(music);
+                    if (album.Artist.Contains(search) || album.Genre.Contains(search) || album.Title.Contains(search) || album.WWW.Contains(search))
+                    {
+                        ShowAlbumAndSongs(album, false);
+                    }
+                    if (song.Title.Contains(search) || song.Genre.Contains(search))
+                    {
+                        ShowAlbumAndSongs(album, true);
+                    }
                 }
             }
         }
+
     }
 }

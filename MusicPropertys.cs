@@ -1,22 +1,20 @@
 ﻿namespace OOPSpotiflixV2
 {
-    internal class MusicPropertys
+    internal class Album : Media
     {
-        public string? Title { get; set; }
+        public List<Song> Songs { get; set; } = new();
         public string? Artist { get; set; }
-        public string? Album { get; set; }
-        public DateTime Length { get; set; }
-        public string? Genre { get; set; }
-        public DateTime ReleaseDate { get; set; }
-        public string? WWW { get; set; }
-
+        public string GetLength()
+        {
+            return Length.ToString("hh:mm");
+        }
+    }
+    internal class Song : Media
+    {
+        public string? Artist { get; set; }
         public string GetLength()
         {
             return Length.ToString("mm:ss");
-        }
-        public string GetReleaseDate()
-        {
-            return ReleaseDate.ToString("D");
         }
     }
 }

@@ -22,14 +22,15 @@ namespace OOPSpotiflixV2
             return input;
         }
 
-        public int GetIntSeason()
+        public int GetInt(string request)
         {
-            int input;
+            int i;
             do
             {
-                Console.Write("Amount of seasons: ");
-            } while (!int.TryParse(Console.ReadLine(), out input) || input <= 0);
-            return input;
+                Console.Write(request);
+            }
+            while (!int.TryParse(Console.ReadLine(), out i));
+            return i;
         }
         public int GetIntEpisode()
         {
@@ -74,6 +75,13 @@ namespace OOPSpotiflixV2
             //TODO Does File Exists?
             data = System.Text.Json.JsonSerializer.Deserialize<Data>(json);
             Console.WriteLine("File loaded succesfully from " + path);
+        }
+        public string GetInputOrParent(string parent, string type)
+        {
+            Console.Write(type);
+            string input = Console.ReadLine();
+            if (input != "") parent = input;
+            return parent;
         }
     }
 }
